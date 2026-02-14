@@ -1,0 +1,13 @@
+/*Using Basic Data Types and I/O Operations in C programming - Write a simple program to print your name and college name.*/
+// Name - _____
+// Roll No - _____
+
+
+#include <stdio.h>
+
+int main() {
+    printf("Name: YourName\n");
+    printf("College: YourCollege\n");
+    printf("Roll No: ___\n");
+    return 0;
+}
