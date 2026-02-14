@@ -1,0 +1,61 @@
+What is a Structure in C Programming?
+A structure in C programming is a user-defined data type that allows you to combine data
+items of different kinds. Structures are used to group different types of variables under a
+single name for easier handling. It is beneficial for representing complex data entities like
+records, such as student or employee information, which may consist of multiple
+attributes.
+
+Key Features of Structures:
+User-Defined Data Type: Allows combining variables of different types.
+Easier Management: Groups related variables for easier management and access.
+Memory Efficiency: More efficient memory usage by combining related data.
+The following program demonstrates how to use structures to manage information about
+multiple students efficiently.
+
+Define a Structure:
+The struct Student is defined to store name, roll number, and marks.
+MAX_STUDENTS is defined to specify the number of students.
+
+Read and Store Details:
+The for loop reads and stores details of each student from the user.
+fgets is used to read the name, ensuring spaces are handled correctly.
+scanf is used to read the roll number and marks.
+
+Display the Stored Information:
+Another for loop is used to display the stored details of each student.
+
+
+#include <stdio.h>
+// Define a structure to hold student information
+struct Student {
+char name[50];
+int rollNumber;
+float marks;
+};
+#define MAX_STUDENTS 3
+int main() {
+struct Student students[MAX_STUDENTS]; // Array of structures to store multiple
+students
+int i;
+
+// Read and store details of each student
+for (i = 0; i < MAX_STUDENTS; i++) {
+printf("Enter details for student %d:\n", i + 1);
+printf("Enter name: ");
+fgets(students[i].name, sizeof(students[i].name), stdin);
+printf("Enter roll number: ");
+scanf("%d", &students[i].rollNumber);
+printf("Enter marks: ");
+scanf("%f", &students[i].marks);
+getchar(); // Clear the newline character from the input buffer
+}
+// Display the stored information
+printf("\nStudent Information:\n");
+for (i = 0; i < MAX_STUDENTS; i++) {
+printf("Details of student %d:\n", i + 1);
+printf("Name: %s", students[i].name); // Name contains the newline character
+printf("Roll Number: %d\n", students[i].rollNumber);
+printf("Marks: %.2f\n", students[i].marks);
+}
+return 0;
+}
