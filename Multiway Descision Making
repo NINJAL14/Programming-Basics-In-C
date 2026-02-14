@@ -1,0 +1,31 @@
+A C-Program to demonstrate Branching Statement, Multiway decision. */ 
+// Name 
+// Roll No
+
+#include <stdio.h> 
+int main() { 
+int num; 
+// Prompt the user to enter a number 
+printf("Enter a number: "); 
+scanf("%d", &num); 
+// If statement 
+if (num > 0) { 
+} 
+printf("(If statement) The number is positive.\n"); 
+// If-else statement 
+if (num % 2 == 0) { 
+printf("(If-else statement) The number is even.\n"); 
+} else { 
+} 
+printf("(If-else statement) The number is odd.\n"); 
+// Multiway decision (if-else-if ladder) 
+if (num > 0) { 
+printf("(Multiway decision) The number is positive.\n"); } else if (num < 0) { 
+printf("(Multiway decision) The number is negative.\n"); 
+} else { 
+C Programming (R24) LAB Experiments 
+printf("(Multiway decision) The number is zero.\n"); 
+First Year Engineering 
+} 
+} 
+return 0; 
