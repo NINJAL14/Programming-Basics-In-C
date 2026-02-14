@@ -1,0 +1,12 @@
+//Do While Loop: Post-condition check, ensures the body executes at least once. 
+The primary difference between while and do while loops in C programming is when the condition is checked and how many times the loop executes
+
+#include <stdio.h> 
+int main() { 
+int i = 1; 
+do { 
+printf("%d\n", i); 
+i++; 
+} while (i <= 5); 
+return 0; 
+} 
