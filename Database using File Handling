@@ -1,0 +1,155 @@
+The following program implements a simple student database system using file handling
+in C. It allows users to:
+1. Add new student records to a file.
+2. Update existing records.
+3. Display all records.
+All data is stored in a file to ensure data persistence, meaning it remains accessible even
+after the program ends.
+
+Explanation of Code
+
+1. File Handling:
+○ fopen() is used to open files in different modes:
+■ "ab": Append binary mode (for adding records).
+■ "rb+": Read-write binary mode (for updating records).
+■ "rb": Read binary mode (for displaying records).
+○ Data is stored in a binary file (students.dat).
+2. Structure Definition:
+○ A struct Student is defined to hold student details:
+■ id: Student's ID.
+■ name: Student's name (string).
+■ marks: Student's marks (float).
+
+3. Adding Records:
+○ addStudent() collects input from the user and appends a new record to
+the file using fwrite().
+
+4. Updating Records:
+○ updateStudent() searches the file for a specific student ID using
+fread().
+○ If the record is found, fseek() moves the file pointer back one record to
+overwrite the data.
+5. Displaying Records:
+○ displayStudents() reads and displays all records in the file sequentially
+using fread().
+6. Menu and Loop:
+○ A menu-driven interface allows the user to perform operations until they
+choose to exit.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+// Define the structure for student records
+struct Student {
+int id;
+char name[50];
+float marks;
+};
+// Function prototypes
+void addStudent();
+void updateStudent();
+void displayStudents();
+int main() {
+int choice;
+do {
+printf("\n--- Student Database Menu ---\n");
+printf("1. Add Student Record\n");
+printf("2. Update Student Record\n");
+printf("3. Display All Student Records\n");
+printf("4. Exit\n");
+printf("Enter your choice: ");
+scanf("%d", &choice);
+switch (choice) {
+case 1:
+addStudent();
+break;
+case 2:
+updateStudent();
+break;
+case 3:
+displayStudents();
+break;
+case 4:
+printf("Exiting the program.\n");
+break;
+default:
+printf("Invalid choice! Please try again.\n");
+}
+} while (choice != 4);
+return 0;
+}
+// Function to add a new student record
+void addStudent() {
+FILE *file = fopen("students.dat", "ab"); // Open file in append binary mode
+if (file == NULL) {
+printf("Error opening file!\n");
+
+
+return;
+}
+struct Student student;
+printf("Enter Student ID: ");
+scanf("%d", &student.id);
+printf("Enter Student Name: ");
+getchar(); // Consume newline left by scanf
+fgets(student.name, sizeof(student.name), stdin);
+student.name[strcspn(student.name, "\n")] = '\0'; // Remove trailing newline
+printf("Enter Student Marks: ");
+scanf("%f", &student.marks);
+fwrite(&student, sizeof(struct Student), 1, file); // Write record to file
+printf("Student record added successfully.\n");
+fclose(file); // Close the file
+}
+// Function to update an existing student record
+void updateStudent() {
+FILE *file = fopen("students.dat", "rb+"); // Open file in read-write binary mode
+if (file == NULL) {
+printf("Error opening file!\n");
+return;
+}
+struct Student student;
+int id, found = 0;
+printf("Enter Student ID to update: ");
+scanf("%d", &id);
+while (fread(&student, sizeof(struct Student), 1, file)) {
+if (student.id == id) {
+printf("Record found. Enter new details:\n");
+printf("Enter Student Name: ");
+getchar(); // Consume newline left by scanf
+fgets(student.name, sizeof(student.name), stdin);
+student.name[strcspn(student.name, "\n")] = '\0'; // Remove trailing newline
+printf("Enter Student Marks: ");
+scanf("%f", &student.marks);
+fseek(file, -sizeof(struct Student), SEEK_CUR); // Move back one record
+fwrite(&student, sizeof(struct Student), 1, file); // Overwrite record
+printf("Record updated successfully.\n");
+found = 1;
+break;
+}
+}
+if (!found) {
+printf("Student ID not found.\n");
+}
+
+C Programming (R24) LAB Experiments First Year Engineering
+
+fclose(file); // Close the file
+}
+// Function to display all student records
+void displayStudents() {
+FILE *file = fopen("students.dat", "rb"); // Open file in read binary mode
+if (file == NULL) {
+printf("Error opening file!\n");
+return;
+}
+struct Student student;
+printf("\n--- Student Records ---\n");
+while (fread(&student, sizeof(struct Student), 1, file)) {
+printf("ID: %d\n", student.id);
+printf("Name: %s\n", student.name);
+printf("Marks: %.2f\n", student.marks);
+printf("-----------------------\n");
+}
+fclose(file); // Close the file
+}
