@@ -1,0 +1,23 @@
+Continue Statement: 
+● The continue statement skips the rest of the code inside the loop for the current iteration and jumps to the next iteration of the loop. 
+● Skip Iterations: Useful for skipping the rest of the code inside a loop for certain conditions and jumping to the next iteration. 
+● Clean Code: Helps to avoid deeply nested if statements, making the code cleaner and easier to read. 
+● Efficient Loop Control: Allows precise control over which iterations of the loop are executed and which are skipped, enhancing efficiency. 
+● Conditional Execution: Facilitates the execution of loop body only when specific conditions are met, avoiding unnecessary computations. 
+● Debugging: Simplifies debugging by skipping over known safe iterations and focusing on problematic cases. 
+
+Continue Statement 
+
+
+#include <stdio.h> 
+int main() { 
+int i; 
+for (i = 1; i <= 10; i++) { 
+if (i % 2 == 0) { 
+continue; // Skip the rest of the loop when i is even 
+// prints all odd numbers 
+} 
+printf("%d\n", i); 
+} 
+return 0; 
+}
