@@ -1,0 +1,25 @@
+Iterative Approach: Uses loops to repeatedly execute a set of instructions. It is generally
+more efficient in terms of memory and performance for problems with simple repetitive
+structures.
+Iterative functions use loops to repeatedly perform a set of instructions until a condition is
+met. This approach is efficient and straightforward for problems that involve repetitive
+calculations, such as finding the factorial of a number or generating Fibonacci numbers.
+Iterative Function for Factorial
+The factorial of a non-negative integer n is the product of all positive integers less than or
+equal to n. The factorial of 0 is defined as 1.
+Formula: n!=n×(n−1)×(n−2)×...×1
+
+
+#include <stdio.h>
+int factorial_iterative(int n) {
+int result = 1;
+for (int i = 1; i <= n; ++i) {
+result *= i;
+}
+return result;
+}
+int main() {
+int number = 5;
+printf("Factorial of %d: %d\n", number, factorial_iterative(number));
+return 0;
+}
