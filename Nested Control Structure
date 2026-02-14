@@ -1,0 +1,34 @@
+/*C-Program to demonstrate Nested control structure- Switch statement, Continue statement, Break statement, Goto statement.*/ // Name - ____ 
+// Roll No - _____ 
+Switch Statement: 
+● The switch statement allows a variable to be tested for equality against a list of values. Each value is called a case, and the variable switched on is checked for each case. 
+● In the program, the switch (choice) checks the value of choice and executes the corresponding case block. The break statement is used to exit the switch block. ● Simplifies Multiple Conditions: Makes code easier to read and manage than multiple if-else statements for discrete values. 
+● Efficient Execution: Generally faster than a series of if-else statements due to direct jumps to the case labels. 
+● Cleaner Code: Organizes code clearly into different cases, improving readability. ● Menu-driven Programs: Ideal for creating menu options and handling user choices. ● State Machines: Useful in designing systems that require switching between the different states based on certain conditions. 
+● Command-based Applications: Helps process commands where each command corresponds to a different operation.
+
+
+#include <stdio.h> 
+int main() { 
+int choice; 
+// Prompt the user to enter a number 
+printf("Enter a number (1-3): "); 
+scanf("%d", &choice); 
+// Switch statement 
+switch (choice) { 
+case 1: 
+printf("You chose option 1.\n"); 
+break; // Break statement to exit the switch case 
+case 2: 
+printf("You chose option 2.\n"); 
+break; 
+case 3: 
+printf("You chose option 3.\n"); 
+break; 
+default: 
+printf("Invalid choice.\n");
+C Programming (R24) LAB Experiments First Year Engineering 
+break; 
+} 
+return 0; 
+} 
