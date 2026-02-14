@@ -1,0 +1,13 @@
+//While Loop: Pre-condition check, might not execute the body if the condition is false initially. 
+While Loop: 
+Condition Checked First: The condition is evaluated before executing the loop's body.// 
+
+#include <stdio.h> 
+int main() { 
+int i = 1; 
+} 
+} 
+while (i <= 5) { 
+printf("%d\n", i); 
+i++; 
+return 0; 
