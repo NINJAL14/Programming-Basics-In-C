@@ -1,0 +1,24 @@
+Iterative Function for Fibonacci
+The Fibonacci sequence is a series of numbers in which each number is the sum of the
+two preceding ones, usually starting with 0 and 1.
+Sequence: F0=0, F1=1, Fn=Fn−1+Fn−2 for n≥2
+
+
+
+#include <stdio.h>
+void fibonacci_iterative(int n) {
+int a = 0, b = 1, next;
+for (int i = 1; i <= n; ++i) {
+printf("%d ", a);
+next = a + b;
+a = b;
+b = next;
+}
+printf("\n");
+}
+int main() {
+int terms = 10;
+printf("Fibonacci sequence up to %d terms:\n", terms);
+fibonacci_iterative(terms);
+return 0;
+}
