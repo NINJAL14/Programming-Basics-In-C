@@ -1,0 +1,37 @@
+What is an Array? 
+An array is a collection of elements (values or variables), all of the same type, stored at contiguous memory locations. The main purpose of an array is to represent multiple data items of the same type using a single name, simplifying the management of data. 
+Key Points: 
+Fixed Size: Once declared, the size of an array cannot be changed. 
+Indexing: Array elements are accessed using indices. In C, indexing starts at 0. Homogeneous Elements: All elements in the array must be of the same data type. 
+
+Use of Arrays in Programming: 
+Efficient Data Storage: Arrays allow storing large amounts of data systematically. Ease of Access: Elements can be accessed efficiently using indices. 
+Simplified Operations: Operations like traversal, searching, and sorting can be implemented easily. 
+Memory Management: Provides better memory management by allocating contiguous memory locations. 
+
+
+1D & 2D - Declare a 1D & 2D array and printing 
+
+
+#include <stdio.h> 
+int main() { 
+// Declare a 1D array of size 5 
+int array1D[5] = {1, 2, 3, 4, 5}; 
+// Declare a 2D array of size 2x2 int matrix[2][2] = { 
+{6, 7}, 
+{8, 9} 
+}; 
+// Print the 1D array 
+printf("The 1D array is:\n"); 
+for (int i = 0; i < 5; i++) { 
+} 
+printf("%d\t", array1D[i]); 
+printf("\n"); 
+// Print the 2D array with tab spaces 
+printf("The 2x2 matrix is:\n"); 
+for (int i = 0; i < 2; i++) { 
+for (int j = 0; j < 2; j++) { 
+printf("%d\t", matrix[i][j]); 
+} 
+printf("\n"); 
+} 
