@@ -1,0 +1,42 @@
+getchar(): 
+getchar()- reads a single character from the standard input (keyboard). 
+In the program, ch = getchar(); reads a character and stores it in the variable ch. putchar(ch); prints the character stored in ch. 
+scanf(): 
+scanf() reads formatted input from the standard input. 
+scanf("%d", &num); reads an integer and stores it in the variable num. 
+printf("You entered: %d\n", num); prints the integer stored in num. 
+gets(): 
+gets() reads a string from the standard input until a newline character is encountered. gets(str); reads a string and stores it in the array str. 
+puts(str); prints the string stored in str. 
+/*Using Basic Data Types and I/O Operations in C programming to demonstrate Operators Data Input and Output scanf(), printf(), gets (), puts() .*/ 
+
+
+
+Program 
+- 
+getchar(), putchar(), 
+// Name - 
+// Roll No 
+#include <stdio.h> 
+int main() { 
+int num1, num2, sum; 
+char character; 
+char str[100]; 
+// Using printf() and scanf() printf("Enter two integers: "); scanf("%d %d", &num1, &num2); 
+// Using the arithmetic operator sum = num1 + num2; 
+// Displaying result using printf() 
+printf("Sum of %d and %d is %d\n", num1, num2, sum); 
+// Using getchar() and putchar() 
+printf("Enter a character: "); 
+getchar(); // To consume the newline character left by scanf() character = getchar(); 
+printf("The character entered is: "); 
+putchar(character); 
+printf("\n"); 
+// Using gets() and puts() 
+printf("Enter a string: "); 
+getchar(); // To consume the newline character left by getchar() gets(str); 
+printf("The string entered is: "); 
+C Programming (R24) LAB Experiments 
+puts(str); 
+return 0; 
+} 
