@@ -1,0 +1,16 @@
+Goto Statement: 
+● The goto statement transfers control to the labeled statement within the same function. It is generally discouraged due to its potential to create complex and hard-to-follow code. 
+● In the program, goto label; jumps to the label: statement, skipping the line printf("This will be skipped.\n");. 
+
+Goto Statement 
+
+#include <stdio.h> 
+int main() { 
+// Goto statement 
+printf("Using goto statement:\n"); 
+goto label; // Jump to the label 
+printf("This will be skipped.\n"); 
+label: 
+printf("Jumped to the label.\n"); 
+return 0; 
+} 
